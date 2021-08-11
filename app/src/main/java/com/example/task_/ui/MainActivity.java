@@ -78,6 +78,5 @@ public class MainActivity extends AppCompatActivity implements MainActivityContr
     public void onRefresh() {
         adapter.clearData();
         presenter.resetPagination();
-
     }
 }

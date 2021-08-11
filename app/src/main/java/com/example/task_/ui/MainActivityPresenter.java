@@ -47,8 +47,8 @@ public class MainActivityPresenter implements MainActivityContract.Presenter, Pa
                 view.hideLoading();
                 if (response.isSuccessful()) {
                     checkIsLoading = false;
-                    ++pageNumber;
                     if (response.body().getData() != null) {
+                        ++pageNumber;
                         view.onGetCarsSuccess(response.body().getData());
                     } else {
                         hasNext = false;
