@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -65,6 +66,10 @@ public class CarsAdapter extends RecyclerView.Adapter<CarsAdapter.CarViewHolder>
         private void loadImage(String src, ImageView target) {
             if (src != null)
                 Glide.with(target.getContext()).load(Uri.parse(src)).into(target);
+            else
+                Glide.with(target.getContext()).
+                        load(ContextCompat.getDrawable(target.getContext(), R.drawable.item_background))
+                        .into(target);
         }
     }
 
