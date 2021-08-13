@@ -49,9 +49,9 @@ dependencies {
     implementation 'com.google.http-client:google-http-client-gson:1.38.1'
 
     //rx java
-    implementation "io.reactivex.rxjava3:rxjava:3.0.6"
+    implementation "io.reactivex.rxjava2:rxjava:2.2.6"
     implementation "io.reactivex.rxjava3:rxkotlin:3.0.0"
-    implementation "io.reactivex.rxjava3:rxandroid:3.0.0"
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
 
     //di
     implementation "org.koin:koin-androidx-scope:2.0.1"
@@ -73,11 +73,8 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.12.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
 
-    //bottom navigation
-    implementation 'com.aurelhubert:ahbottomnavigation:2.3.4'
-
-    //countdown view
-    implementation 'com.github.iwgang:countdownview:2.1.6'
+    //retrofit rx
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.9.0'
 
     //pagination
     implementation "com.github.markomilos:paginate:0.5.1"

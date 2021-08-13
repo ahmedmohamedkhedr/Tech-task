@@ -68,7 +68,7 @@ public class CarsAdapter extends RecyclerView.Adapter<CarsAdapter.CarViewHolder>
                 Glide.with(target.getContext()).load(Uri.parse(src)).into(target);
             else
                 Glide.with(target.getContext()).
-                        load(ContextCompat.getDrawable(target.getContext(), R.drawable.item_background))
+                        load(ContextCompat.getDrawable(target.getContext(), R.drawable.ic_place_holder))
                         .into(target);
         }
     }

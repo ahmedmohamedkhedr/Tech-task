@@ -15,9 +15,10 @@ import com.paginate.Paginate;
 
 import java.util.List;
 
+
 public class MainActivity extends AppCompatActivity implements MainActivityContract.View, SwipeRefreshLayout.OnRefreshListener {
     private final CarsAdapter adapter = new CarsAdapter();
-    private final MainActivityContract.Presenter presenter = new MainActivityPresenter(this);
+    private final MainActivityContract.Presenter presenter = new MainActivityPresenter(getLifecycle(), this);
 
     private RecyclerView carsRecyclerView;
     private SwipeRefreshLayout swipeRefreshLayout;
@@ -42,9 +43,9 @@ public class MainActivity extends AppCompatActivity implements MainActivityContr
         carsRecyclerView.setAdapter(adapter);
     }
 
-    private void setupSwipeToRefresh(){
+    private void setupSwipeToRefresh() {
         swipeRefreshLayout.setOnRefreshListener(this);
-        swipeRefreshLayout.setProgressViewEndTarget(false,120);
+        swipeRefreshLayout.setProgressViewEndTarget(false, 120);
     }
 
     private void getPageCarsWithPagination() {
