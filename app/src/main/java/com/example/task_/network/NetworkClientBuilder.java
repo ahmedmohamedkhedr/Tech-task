@@ -1,4 +1,4 @@
-package com.example.task_.data;
+package com.example.task_.network;
 
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;

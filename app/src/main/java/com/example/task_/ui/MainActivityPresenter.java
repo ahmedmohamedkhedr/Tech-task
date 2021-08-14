@@ -5,8 +5,8 @@ import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.OnLifecycleEvent;
 
 import com.example.task_.constants.Constants;
-import com.example.task_.data.ApiService;
-import com.example.task_.data.NetworkClientBuilder;
+import com.example.task_.network.ApiService;
+import com.example.task_.network.NetworkClientBuilder;
 import com.example.task_.pojos.CarResponse;
 import com.paginate.Paginate;
 
@@ -14,9 +14,6 @@ import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
-import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 
 public class MainActivityPresenter implements MainActivityContract.Presenter, Paginate.Callbacks, LifecycleObserver {
