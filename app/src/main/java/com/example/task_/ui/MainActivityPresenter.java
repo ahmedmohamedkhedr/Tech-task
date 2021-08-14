@@ -6,6 +6,7 @@ import androidx.lifecycle.OnLifecycleEvent;
 
 import com.example.task_.constants.Constants;
 import com.example.task_.data.ApiService;
+import com.example.task_.data.NetworkClientBuilder;
 import com.example.task_.pojos.CarResponse;
 import com.paginate.Paginate;
 
@@ -21,7 +22,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class MainActivityPresenter implements MainActivityContract.Presenter, Paginate.Callbacks, LifecycleObserver {
     private Boolean hasNext = true;
     private Boolean checkIsLoading = false;
-    private ApiService apiService;
+    private final ApiService apiService;
     private final MainActivityContract.View view;
     private Disposable disposable = null;
 
@@ -31,7 +32,9 @@ public class MainActivityPresenter implements MainActivityContract.Presenter, Pa
     MainActivityPresenter(Lifecycle lifecycle, MainActivityContract.View view) {
         this.view = view;
         lifecycle.addObserver(this);
-        initRetrofitBuilder();
+        NetworkClientBuilder<ApiService> client =
+                new NetworkClientBuilder<ApiService>(Constants.BASE_URL);
+        apiService = client.getApiService(ApiService.class);
     }
 
     @Override
@@ -89,18 +92,6 @@ public class MainActivityPresenter implements MainActivityContract.Presenter, Pa
                 });
     }
 
-    private void initRetrofitBuilder() {
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(Constants.BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                .build();
-        initApiService(retrofit);
-    }
-
-    private void initApiService(Retrofit retrofit) {
-        apiService = retrofit.create(ApiService.class);
-    }
 
     @Override
     public void onLoadMore() {

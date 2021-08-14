@@ -18,6 +18,8 @@ import com.example.task_.pojos.CarModel;
 import java.util.ArrayList;
 import java.util.List;
 
+import static android.icu.lang.UCharacter.GraphemeClusterBreak.T;
+
 public class CarsAdapter extends RecyclerView.Adapter<CarsAdapter.CarViewHolder> {
     private final List<CarModel> carsList = new ArrayList<CarModel>();
 
@@ -64,12 +66,7 @@ public class CarsAdapter extends RecyclerView.Adapter<CarsAdapter.CarViewHolder>
         }
 
         private void loadImage(String src, ImageView target) {
-            if (src != null)
-                Glide.with(target.getContext()).load(Uri.parse(src)).into(target);
-            else
-                Glide.with(target.getContext()).
-                        load(ContextCompat.getDrawable(target.getContext(), R.drawable.ic_place_holder))
-                        .into(target);
+            Glide.with(target.getContext()).load(src).placeholder(R.drawable.ic_car).into(target);
         }
     }
 
